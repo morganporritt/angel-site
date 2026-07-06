@@ -1,12 +1,10 @@
 import Button from "@/components/Button";
 import Link from "@/components/Link";
 
-import LoginButton from "./LoginButton";
-
 const navLinks = [
   { label: "Watch", href: "/watch" },
-  { label: "In Theaters", href: "/#theaters" },
-  { label: "Guild", href: "/#guild" },
+  { label: "In Theaters", href: "/theaters" },
+  { label: "Guild", href: "/guild" },
 ];
 
 export default function Header() {
@@ -28,7 +26,13 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <LoginButton className="hidden sm:inline-flex" />
+          <Link
+            href="/login"
+            variant="nav"
+            className="hidden sm:inline-flex"
+          >
+            Log In
+          </Link>
           <Button variant="primary" size="sm">
             Get Started
           </Button>

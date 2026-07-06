@@ -264,7 +264,7 @@ function JoinCta() {
             </Button>
             <p className="text-xs text-muted">
               Already a member?{" "}
-              <Link href="#login" variant="default">
+              <Link href="/login" variant="default">
                 Log in
               </Link>
             </p>

@@ -5,7 +5,7 @@ const footerColumns = [
     heading: "Watch",
     links: [
       { label: "Shows", href: "/watch" },
-      { label: "In Theaters", href: "/#theaters" },
+      { label: "In Theaters", href: "/theaters" },
       { label: "Free", href: "/watch" },
       { label: "View All", href: "/watch" },
     ],
