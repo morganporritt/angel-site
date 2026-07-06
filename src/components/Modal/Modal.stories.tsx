@@ -74,7 +74,9 @@ const meta = {
     },
     children: { control: false, description: "Modal body content." },
   },
-  args: { title: "Log in" },
+  // `onClose`/`children` are required props; the stories drive them through
+  // their `render` wrappers, so satisfy the types with defaults here.
+  args: { title: "Log in", open: false, onClose: () => {}, children: null },
 } satisfies Meta<typeof Modal>;
 
 export default meta;
