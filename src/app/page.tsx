@@ -2,17 +2,9 @@ import Button from "@/components/Button";
 import Link from "@/components/Link";
 import TextField from "@/components/TextField";
 
-import LoginButton from "./LoginButton";
-
 /* ------------------------------------------------------------------ */
 /* Data (presentational placeholders)                                  */
 /* ------------------------------------------------------------------ */
-
-const navLinks = [
-  { label: "Watch", href: "#watch" },
-  { label: "In Theaters", href: "#theaters" },
-  { label: "Guild", href: "#guild" },
-];
 
 const valueProps = [
   {
@@ -73,31 +65,6 @@ const shows = [
   { title: "Young Washington", genre: "History", gradient: "from-slate-500 to-slate-800" },
 ];
 
-const footerColumns = [
-  {
-    heading: "Watch",
-    links: ["Shows", "In Theaters", "Free", "View All"],
-  },
-  {
-    heading: "Genres",
-    links: ["Comedy", "Drama", "Documentary", "Family", "Faith Based"],
-  },
-  {
-    heading: "Invest",
-    links: ["Acceleration Fund", "For Filmmakers", "Projects"],
-  },
-  {
-    heading: "About",
-    links: ["Company", "Mission", "Careers", "Press", "Blog"],
-  },
-  {
-    heading: "Legal",
-    links: ["Privacy", "Terms", "Cookies", "Devices"],
-  },
-];
-
-const socials = ["Facebook", "YouTube", "Twitter", "Instagram", "TikTok"];
-
 /* ------------------------------------------------------------------ */
 /* Page                                                                */
 /* ------------------------------------------------------------------ */
@@ -105,15 +72,11 @@ const socials = ["Facebook", "YouTube", "Twitter", "Instagram", "TikTok"];
 export default function Home() {
   return (
     <>
-      <Header />
-      <main className="flex-1">
-        <Hero />
-        <ValueProps />
-        <Pricing />
-        <Library />
-        <JoinCta />
-      </main>
-      <Footer />
+      <Hero />
+      <ValueProps />
+      <Pricing />
+      <Library />
+      <JoinCta />
     </>
   );
 }
@@ -121,35 +84,6 @@ export default function Home() {
 /* ------------------------------------------------------------------ */
 /* Sections                                                            */
 /* ------------------------------------------------------------------ */
-
-function Header() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" variant="nav" className="!text-foreground">
-          <span className="text-lg font-bold tracking-tight">
-            <span className="text-primary">ANGEL</span> SITE
-          </span>
-        </Link>
-
-        <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <Link key={link.label} href={link.href} variant="nav">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <LoginButton className="hidden sm:inline-flex" />
-          <Button variant="primary" size="sm">
-            Get Started
-          </Button>
-        </div>
-      </div>
-    </header>
-  );
-}
 
 function Hero() {
   return (
@@ -260,7 +194,7 @@ function Pricing() {
 
 function Library() {
   return (
-    <section id="watch" className="border-t border-border bg-surface/30">
+    <section className="border-t border-border bg-surface/30">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
@@ -271,7 +205,7 @@ function Library() {
               New titles every week, thanks to members like you.
             </p>
           </div>
-          <Link href="#watch" variant="default" className="whitespace-nowrap">
+          <Link href="/watch" variant="default" className="whitespace-nowrap">
             View all shows →
           </Link>
         </div>
@@ -338,55 +272,5 @@ function JoinCta() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-6">
-          <div className="md:col-span-1">
-            <span className="text-lg font-bold tracking-tight">
-              <span className="text-primary">ANGEL</span> SITE
-            </span>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
-              A new kind of streaming platform — driven by purpose and built to
-              share stories that amplify light.
-            </p>
-          </div>
-
-          {footerColumns.map((column) => (
-            <div key={column.heading} className="flex flex-col gap-3">
-              <h4 className="text-sm font-semibold text-foreground">
-                {column.heading}
-              </h4>
-              <ul className="flex flex-col gap-2">
-                {column.links.map((label) => (
-                  <li key={label}>
-                    <Link href="#" variant="footer">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-14 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-muted">
-            © 2026 Angel Site. All Rights Reserved.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            {socials.map((social) => (
-              <Link key={social} href="#" variant="footer">
-                {social}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
