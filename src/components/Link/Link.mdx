@@ -1,0 +1,52 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
+
+import * as LinkStories from "./Link.stories";
+
+<Meta of={LinkStories} />
+
+# Link
+
+A thin wrapper around Next.js `<Link>` that adds consistent, context-aware
+styling. Internal routes get client-side navigation for free; external
+`http(s)` URLs automatically receive `target="_blank"` and
+`rel="noopener noreferrer"`.
+
+```tsx
+import Link from "@/components/Link";
+
+<Link href="/watch" variant="nav">
+  Watch
+</Link>;
+
+<Link href="https://www.angel.com" variant="default">
+  Visit angel.com
+</Link>;
+```
+
+## Variants
+
+Pick the variant that matches where the link appears:
+
+- **default** — inline body links; accented and underlines on hover.
+- **nav** — header navigation; high-contrast foreground text.
+- **muted** — de-emphasised links (e.g. "Log In").
+- **footer** — small, muted links used in footer columns.
+
+<Canvas of={LinkStories.AllVariants} />
+
+## External links
+
+When `href` starts with `http://` or `https://`, the link opens in a new tab
+with safe `rel` attributes applied automatically — no extra props needed.
+
+<Canvas of={LinkStories.External} />
+
+## Props
+
+<Controls of={LinkStories.Default} />
+
+## Guidelines
+
+- Use `Link` for navigation; use [`Button`](?path=/docs/components-button--docs)
+  for actions that change state or submit data.
+- Keep link text descriptive — avoid bare "click here".

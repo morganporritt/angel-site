@@ -1,0 +1,54 @@
+import { Meta, Canvas, Controls, Story } from "@storybook/addon-docs/blocks";
+
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+A pill-shaped, fully accessible button with three levels of emphasis and three
+sizes. It forwards every native `<button>` attribute (`onClick`, `type`,
+`aria-*`, `disabled`, …), so it drops in anywhere a plain button would.
+
+```tsx
+import Button from "@/components/Button";
+
+<Button variant="primary" size="lg" onClick={handleClick}>
+  Get Started
+</Button>;
+```
+
+## Variants
+
+Use **primary** for the single most important action on a view, **secondary**
+for supporting actions, and **tertiary** for low-emphasis / inline actions.
+
+<Canvas of={ButtonStories.AllVariants} />
+
+## Sizes
+
+Three sizes are available via the `size` prop.
+
+<Canvas of={ButtonStories.Sizes} />
+
+## Full width
+
+Set `fullWidth` to stretch the button to fill its container — handy in forms
+and cards.
+
+<Canvas of={ButtonStories.FullWidth} />
+
+## Disabled
+
+<Canvas of={ButtonStories.Disabled} />
+
+## Props
+
+<Controls of={ButtonStories.Primary} />
+
+## Guidelines
+
+- Keep to **one** primary button per section so the main action stays obvious.
+- Button labels should be short, action-first verbs ("Get Started", "Log In").
+- For navigation between pages, prefer the [`Link`](?path=/docs/components-link--docs)
+  component instead of a button.

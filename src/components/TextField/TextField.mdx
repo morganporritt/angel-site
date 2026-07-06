@@ -1,0 +1,58 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
+
+import * as TextFieldStories from "./TextField.stories";
+
+<Meta of={TextFieldStories} />
+
+# TextField
+
+A labeled text input for forms. It renders a `<label>` wired to the `<input>`
+via `id`/`htmlFor`, with optional helper (`hint`) text. All native input
+attributes pass through (`type`, `placeholder`, `value`, `onChange`,
+`disabled`, `required`, `autoComplete`, …).
+
+```tsx
+import TextField from "@/components/TextField";
+
+<TextField
+  id="signup-email"
+  label="Email address"
+  type="email"
+  placeholder="you@example.com"
+  hint="We'll never share your email."
+/>;
+```
+
+## Basic usage
+
+<Canvas of={TextFieldStories.Default} />
+
+## With a hint
+
+Use `hint` for helper or reassurance text shown beneath the input.
+
+<Canvas of={TextFieldStories.WithHint} />
+
+## Field types
+
+Pass any native input `type` — e.g. `password` or `search`.
+
+<Canvas of={TextFieldStories.Password} />
+<Canvas of={TextFieldStories.WithoutLabel} />
+
+## In a form
+
+The home-page sign-up form composes two fields together.
+
+<Canvas of={TextFieldStories.SignUpForm} />
+
+## Props
+
+<Controls of={TextFieldStories.Default} />
+
+## Guidelines
+
+- Always provide an `id` so the label is programmatically associated with the
+  input — this is required for accessibility.
+- Prefer a visible `label` over placeholder-only fields; placeholders disappear
+  on input and aren't a substitute for labels.
