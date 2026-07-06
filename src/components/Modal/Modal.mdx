@@ -1,0 +1,62 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
+
+import * as ModalStories from "./Modal.stories";
+
+<Meta of={ModalStories} />
+
+# Modal
+
+A centered, accessible dialog rendered on top of the page. `Modal` is a
+**controlled** component — the parent owns the open/closed state via `open`
+and reacts to close requests via `onClose`.
+
+It renders through a **React portal into `document.body`**, so the overlay is
+always sized to the viewport and never clipped by an ancestor's stacking or
+containing block (for example, the header's `backdrop-blur`).
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import Modal from "@/components/Modal";
+
+function Example() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>Log In</button>
+      <Modal open={open} onClose={() => setOpen(false)} title="Log in">
+        {/* any content — a form, a message, etc. */}
+      </Modal>
+    </>
+  );
+}
+```
+
+## Interactive example
+
+<Canvas of={ModalStories.Default} />
+
+## Closing behaviour
+
+The modal calls `onClose` when the user:
+
+- presses **Escape**,
+- clicks the **backdrop** outside the panel, or
+- clicks the **✕** button in the top-right corner.
+
+While open, it also locks body scroll so the page behind doesn't move.
+
+## Props
+
+<Controls of={ModalStories.Default} />
+
+## Guidelines
+
+- Keep `Modal` controlled — store `open` in the parent and toggle it; the modal
+  never manages its own visibility.
+- Give every modal a `title` so assistive tech can announce it (it's wired to
+  the dialog's `aria-label`).
+- Use it inside a Client Component (`"use client"`) — it relies on state and
+  browser APIs.

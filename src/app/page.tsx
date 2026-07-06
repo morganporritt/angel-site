@@ -2,6 +2,8 @@ import Button from "@/components/Button";
 import Link from "@/components/Link";
 import TextField from "@/components/TextField";
 
+import LoginButton from "./LoginButton";
+
 /* ------------------------------------------------------------------ */
 /* Data (presentational placeholders)                                  */
 /* ------------------------------------------------------------------ */
@@ -139,9 +141,7 @@ function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link href="#login" variant="nav" className="hidden sm:inline-flex">
-            Log In
-          </Link>
+          <LoginButton className="hidden sm:inline-flex" />
           <Button variant="primary" size="sm">
             Get Started
           </Button>
